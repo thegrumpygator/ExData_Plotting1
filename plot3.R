@@ -34,12 +34,17 @@ smallset <- powerdata[(powerdata$Date=="1/2/2007")|(powerdata$Date=="2/2/2007"),
 
 
 # plot3
-png(filename="Plot3.png", width=480, height=480, units="px", bg="white")
+png(filename = "Plot3.png", width = 480, height = 480, units = "px", bg = "white")
 
-plot(smallset$DateTime, smallset$Sub_metering_1, pch=NA_integer_, xlab="", ylab="Energy sub metering")
-lines(smallset$DateTime, smallset$Sub_metering_1, col="black")
-lines(smallset$DateTime, smallset$Sub_metering_2, col="red")
-lines(smallset$DateTime, smallset$Sub_metering_3, col="blue")
-legend("topright", pch = NA_integer_, col=c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1)
+with(smallset, {
+     plot(DateTime, Sub_metering_1, pch = NA_integer_, xlab = "", 
+          ylab = "Energy sub metering")
+     lines(DateTime, Sub_metering_1, col = "black")
+     lines(DateTime, Sub_metering_2, col = "red")
+     lines(DateTime, Sub_metering_3, col = "blue")
+     legend("topright", pch = NA_integer_, col = c("black", "red", "blue"), lty = 1,
+            legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+})
+
 
 dev.off()

@@ -35,6 +35,9 @@ smallset <- powerdata[(powerdata$Date=="1/2/2007")|(powerdata$Date=="2/2/2007"),
 # plot1
 png(filename="Plot1.png", width=480, height=480, units="px", bg="white")
 
-hist(smallset$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
+with(smallset, {
+     hist(Global_active_power, col = "red", main = "Global Active Power", 
+          xlab = "Global Active Power (kilowatts)")
+})
 
 dev.off()

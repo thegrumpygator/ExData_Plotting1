@@ -37,7 +37,11 @@ smallset <- powerdata[(powerdata$Date=="1/2/2007")|(powerdata$Date=="2/2/2007"),
 # plot2
 png(filename="Plot2.png", width=480, height=480, units="px", bg="white")
 
-plot(smallset$DateTime, smallset$Global_active_power, col="black", main="", xlab="",ylab="Global Active Power (kilowatts)", pch=NA_integer_)
-lines(smallset$DateTime, smallset$Global_active_power, col="black", main="", ylab="Global Active Power (kilowatts)")
+with(smallset, {
+     plot(DateTime, Global_active_power, col = "black", main = "", xlab = "",
+          ylab = "Global Active Power (kilowatts)", pch = NA_integer_)
+     lines(DateTime, Global_active_power, col = "black")
+})
+
 
 dev.off()
